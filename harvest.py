@@ -60,10 +60,6 @@ def print_pairing_info(melon_types):
         print(f'{melon.name} pairs with')
         for pairing in melon.pairings:
             print(f'-{pairing}')
-        print()
-
-
-
 
 def make_melon_type_lookup(melon_types):
     """Takes a list of MelonTypes and returns a dictionary of melon type by code."""
@@ -134,10 +130,11 @@ def get_sellability_report(melons):
             sold_statement = "is not sellable"
         print(f'Harvested by {melon.harvester} from Field {melon.field_number} {sold_statement}')
 
-melon_types = make_melon_types()
-print_pairing_info(melon_types)
-make_melon_type_lookup(melon_types)   
-melons_by_id = make_melon_type_lookup(melon_types)
-melons = make_melons(melons_by_id)
-get_sellability_report(melons)
+if __name__ == '__main__':
+    melon_types = make_melon_types()
+    print_pairing_info(melon_types)
+    make_melon_type_lookup(melon_types)   
+    melons_by_id = make_melon_type_lookup(melon_types)
+    melons = make_melons(melons_by_id)
+    get_sellability_report(melons)
 
